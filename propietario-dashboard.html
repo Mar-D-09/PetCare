@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard Propietario</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <style>
+        /* --- Estilos rápidos de modales --- */
+        .modal { 
+            position: fixed; 
+            top: 50%; left: 50%; 
+            transform: translate(-50%, -50%); 
+            background: #fff; 
+            border: 1px solid #ccc; 
+            padding: 20px; 
+            z-index: 100; 
+            border-radius: 8px; 
+            width: 300px; 
+        }
+        .modal-contenido { display: flex; flex-direction: column; gap: 10px; }
+        .oculto { display: none; }
+        input, select { padding: 5px; width: 100%; }
+    </style>
+</head>
+
+<body>
+
+<!-- LOGO -->
+<div id="header-peque" style="padding:10px; background:#a17442; color:#fff; text-align:center;">
+    <img src="img/logo.jpeg" alt="Logo PetCare" style="width:80px; border-radius:50%;">
+    <p>"Cuidamos con amor cada patita"</p>
+</div>
+
+<!--  ---------------- PANEL PRINCIPAL 30 / 40 / 30 ---------------- -->
+<div class="panel-contenedor">
+
+    <!-- COLUMNA 1: LISTA DE MASCOTAS (30%) -->
+    <div class="columna mascotas-columna">
+        <h2>Mascotas</h2>
+        <button id="btnAgregarMascota" class="btn-petcare w-100">+ Agregar Mascota</button>
+        <div id="listaMascotas"></div>
+    </div>
+
+    <!-- COLUMNA 2: INFO DE MASCOTA (40%) -->
+    <div class="columna info-columna">
+        <h2>Información de la Mascota</h2>
+        <div id="infoMascota"></div>
+    </div>
+
+    <!-- COLUMNA 3: ACCIONES (30%) -->
+    <div class="columna acciones-columna">
+        <h2>Acciones</h2>
+        <div id="panelAcciones"></div>
+    </div>
+</div>
+
+
+<!-- --------------------- MODAL CITA ----------------------- -->
+<div id="modalCita" class="modal oculto">
+    <div class="modal-contenido">
+        <h2>Agendar Cita</h2>
+        <label>Motivo:</label>
+        <input type="text" id="cita-motivo">
+
+        <label>Fecha:</label>
+        <input type="date" id="cita-fecha">
+
+        <label>Hora:</label>
+        <input type="time" id="cita-hora">
+
+        <button id="guardarCita" class="btn-petcare">Guardar Cita</button>
+        <button onclick="cerrarModales()" class="btn-cerrar">Cerrar</button>
+    </div>
+</div>
+
+<!-- ---------------- MODAL RECORDATORIO ------------------- -->
+<div id="modalRecordatorio" class="modal oculto">
+    <div class="modal-contenido">
+        <h2>Nuevo Recordatorio</h2>
+
+        <label>Tipo:</label>
+        <select id="recordatorio-tipo">
+            <option value="">Seleccione...</option>
+            <option value="Pastilla">Pastilla</option>
+            <option value="Vacuna">Vacuna</option>
+            <option value="Desparasitación">Desparasitación</option>
+            <option value="Cita Veterinaria">Cita Veterinaria</option>
+        </select>
+
+        <label>Fecha:</label>
+        <input type="date" id="recordatorio-fecha">
+
+        <label>Hora:</label>
+        <input type="time" id="recordatorio-hora">
+
+        <button id="guardarRecordatorio" class="btn-petcare">Guardar</button>
+        <button onclick="cerrarModales()" class="btn-cerrar">Cerrar</button>
+    </div>
+</div>
+
+<!-- ------------------- MODAL AGREGAR MASCOTA ------------------- -->
+<div id="modalMascota" class="modal oculto">
+    <div class="modal-contenido">
+        <h2>Nueva Mascota</h2>
+
+        <label>Nombre:</label>
+        <input type="text" id="mascota-nombre">
+
+        <label>Especie:</label>
+        <input type="text" id="mascota-tipo">
+
+        <label>Edad:</label>
+        <input type="number" id="mascota-edad">
+
+        <button id="guardarMascota" class="btn-petcare">Guardar Mascota</button>
+        <button onclick="cerrarModales()" class="btn-cerrar">Cerrar</button>
+    </div>
+</div>
+
+
+<script src="js/propietario-dashboard.js"></script>
+</body>
+</html>

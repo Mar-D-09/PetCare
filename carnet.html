@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Carné de Mascota</title>
+    <link rel="stylesheet" href="css/carnet.css">
+    
+    <style>
+        .modal { 
+            position: fixed; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            background: #fff; 
+            border: 1px solid #ccc; 
+            padding: 20px; 
+            z-index: 1000;
+            border-radius: 8px; 
+            width: 350px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .modal-contenido { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 15px; 
+        }
+        .oculto { display: none; }
+        .btn {
+            padding: 10px 15px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+        }
+        .guardar { background-color: #4CAF50; color: white; }
+        .cerrar { background-color: #f44336; color: white; }
+    </style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <div class="ficha-mascota">
+
+        <div class="foto">
+            <img id="fotoMascota" src="img/perfil_mascota.png" alt="Foto Mascota">
+            <input type="file" id="subirFoto" accept="image/*">
+        </div>
+
+        <div class="info-basica">
+            <h2 id="nombreMascota">Nombre de la Mascota</h2>
+            <p><strong>Edad:</strong> <span id="edadMascota"></span></p>
+            <p><strong>Raza:</strong> <span id="razaMascota"></span></p>
+        </div>
+
+        <div class="acciones">
+            <button id="btnEditar" class="btn editar">✏ Editar Información</button>
+            <button id="btnEliminar" class="btn eliminar">🗑 Eliminar Mascota</button>
+        </div>
+
+    </div>
+
+    <div class="seccion">
+        <h3>💉 Vacunas Aplicadas</h3>
+        <button id="btnAgregarVacuna" class="btn agregar">➕ Agregar Vacuna</button>
+        <div id="listaVacunas" class="lista-items"></div>
+    </div>
+
+    <hr>
+
+    <div class="seccion">
+        <h3>🐛 Desparasitación</h3>
+        <button id="btnAgregarDesparasitacion" class="btn agregar">➕ Agregar Desparasitación</button>
+        <div id="listaDesparasitaciones" class="lista-items"></div>
+    </div>
+
+    <hr>
+
+</div>
+
+<!-- MODAL VACUNA -->
+<div id="modalVacuna" class="modal oculto">
+    <div class="modal-contenido">
+        <h2>Registrar Vacuna</h2>
+
+        <label>Nombre:</label>
+        <input type="text" id="vacuna-nombre">
+
+        <label>Fecha aplicada:</label>
+        <input type="date" id="vacuna-fecha">
+        
+        <label>Próxima aplicación:</label>
+        <input type="date" id="vacuna-proxima">
+
+        <button id="guardarVacuna" class="btn guardar">Guardar</button>
+        <button onclick="cerrarModales()" class="btn cerrar">Cerrar</button>
+    </div>
+</div>
+
+
+<!-- MODAL DESPARASITACIÓN -->
+<div id="modalDesparasitacion" class="modal oculto">
+    <div class="modal-contenido">
+        <h2>Registrar Desparasitación</h2>
+
+        <label>Tipo:</label>
+        <input type="text" id="despa-nombre">
+
+        <label>Fecha aplicada:</label>
+        <input type="date" id="despa-fecha">
+        
+        <label>Próxima aplicación:</label>
+        <input type="date" id="despa-proxima">
+
+        <button id="guardarDespa" class="btn guardar">Guardar</button>
+        <button onclick="cerrarModales()" class="btn cerrar">Cerrar</button>
+    </div>
+</div>
+
+
+<!-- MODAL EDITAR -->
+<div id="modalEditar" class="modal oculto">
+    <div class="modal-contenido">
+        <h2>Editar información</h2>
+
+        <label>Nombre:</label>
+        <input type="text" id="editar-nombre">
+
+        <label>Edad:</label>
+        <input type="text" id="editar-edad">
+        
+        <label>Raza:</label>
+        <input type="text" id="editar-raza" disabled value="Solo se editan Nombre y Edad">
+
+        <button id="guardarEditar" class="btn guardar">Guardar Cambios</button>
+        <button onclick="cerrarModales()" class="btn cerrar">Cerrar</button>
+    </div>
+</div>
+
+
+<script src="js/carnet.js"></script>
+
+</body>
+</html>

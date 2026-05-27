@@ -1,0 +1,195 @@
+/* ================================
+   PALETA DE COLORES PETCARE
+================================ */
+:root {
+    --color-principal: #7AA874;     /* verde olivo suave */
+    --color-secundario: #C3A27F;    /* marrón claro */
+    --color-fondo: #F5F0E8;         /* crema */
+    --color-texto: #3E2723;         /* marrón oscuro */
+    --color-hover: #416b52;          /* verde menta */
+}
+
+/* ================================
+   ESTILO GENERAL DE LA PÁGINA
+================================ */
+body {
+    background-image: url('../img/fondo.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--color-fondo);
+
+    color: var(--color-texto);
+    font-family: "Poppins", sans-serif;
+
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin: 0;
+}
+
+/* ------------------------------
+   CONTENEDOR PRINCIPAL
+------------------------------- */
+.contenedor {
+    width: 90%;
+    max-width: 900px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+/* ------------------------------
+   FICHA PRINCIPAL DE MASCOTA
+------------------------------- */
+.ficha-mascota {
+    display: flex;
+    gap: 20px;
+    background: var(--color-secundario);
+    padding: 18px;
+    border-radius: 12px;
+    color: white;
+}
+
+.foto {
+    text-align: center;
+}
+
+.foto img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 3px solid var(--color-principal);
+}
+
+.foto input[type="file"] {
+    margin-top: 8px;
+    font-size: 12px;
+}
+
+/* ------------------------------
+   INFO BÁSICA
+------------------------------- */
+.info-basica h2 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.info-basica p {
+    margin: 4px 0;
+}
+
+/* ------------------------------
+   BOTONES PRINCIPALES
+------------------------------- */
+.acciones {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.btn.editar {
+    background: var(--color-principal);
+    color: white;
+}
+
+.btn.eliminar {
+    background: #b93a3a;
+    color: white;
+}
+
+.btn.agregar {
+    background: var(--color-principal);
+    color: white;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background: var(--color-hover);
+}
+
+/* ------------------------------
+   SECCIONES (Vacunas / Desparasitación)
+------------------------------- */
+.seccion {
+    margin-top: 30px;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+}
+
+.seccion h3 {
+    color: var(--color-principal);
+    margin-top: 0;
+}
+
+.lista {
+    padding-left: 15px;
+    margin-top: 10px;
+}
+
+.lista p {
+    background: var(--color-fondo);
+    padding: 8px;
+    border-radius: 8px;
+    margin: 5px 0;
+    border-left: 4px solid var(--color-principal);
+}
+
+/* ------------------------------
+   MODALES
+------------------------------- */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    width: 300px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    z-index: 2000;
+}
+
+.oculto {
+    display: none;
+}
+
+.modal-contenido {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal input {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid var(--color-principal);
+}
+
+/* ------------------------------
+   BOTÓN DE LOS MODALES
+------------------------------- */
+.btn.guardar {
+    background: var(--color-principal);
+    color: white;
+}
+
+.btn.cerrar {
+    background: var(--color-secundario);
+    color: white;
+}
